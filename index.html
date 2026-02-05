@@ -284,26 +284,9 @@ footer{background:#070a1f;padding:25px;text-align:center;font-size:14px;opacity:
 <footer>© 2026 JCI Zawiet el Magaiez – Tous droits réservés</footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const menuIcon = document.querySelector('.mobile-menu-icon');
-  const mobileMenu = document.querySelector('.mobile-menu');
-
-  if(menuIcon && mobileMenu){
-    menuIcon.addEventListener('click', () => {
-      mobileMenu.classList.toggle('active');  // ouvre/ferme le menu
-      // Changer l’icône burger → croix quand menu ouvert
-      menuIcon.textContent = mobileMenu.classList.contains('active') ? '✖' : '☰';
-    });
-
-    // Fermer automatiquement le menu quand un lien est cliqué
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        menuIcon.textContent = '☰';
-      });
-    });
-  }
-});
+const menuIcon = document.querySelector('.mobile-menu-icon');
+const mobileMenu = document.querySelector('.mobile-menu');
+menuIcon.addEventListener('click', ()=>{mobileMenu.classList.toggle('active');});
 </script>
 
 </body>
