@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Rejoindre la JCI | Zawiet el Magaiez</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --jci-navy: #0B0F2F;
+      --jci-blue: #1E88E5;
+      --jci-cyan: #39C6C3;
+      --jci-gold: #EDBE38;
+      --jci-white: #ffffff;
+    }
+/* === Responsive global pour mobile === */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* optionnel, réduire texte si nécessaire */
+  }
+
+  header, .hero-content {
+    padding: 60px 15px 50px; /* ajuster les paddings pour petits écrans */
+  }
+
+  .top-palette {
+    display: none; /* cacher la palette horizontale sur mobile */
+  }
+
+  .mobile-menu-icon {
+    display: block; /* afficher l'icône hamburger */
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    z-index: 1000;
+    cursor: pointer;
+    color: var(--white);
+  }
+
+  .mobile-menu {
+    display: none; /* caché par défaut */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: var(--jci-navy);
+    padding-top: 60px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.4);
+    z-index: 999;
+    overflow-y: auto;
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    padding: 0 20px;
+  }
+
+  .mobile-menu li {
+    margin: 20px 0;
+  }
+
+  .mobile-menu a {
+    text-decoration: none;
+    font-size: 18px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s;
+  }
+
+  .mobile-menu a:hover {
+    color: var(--jci-gold);
+  }
+
+  /* Autres sections ajustables */
+  .cards-container, .stats-container, .contact-row {
+    grid-template-columns: 1fr !important; /* empile les éléments sur mobile */
+    gap: 15px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0B0F2F, #0F1A4A);
+      color: var(--jci-white);
+      min-height: 100vh;
+    }
+
+    /* LOGO */
+    .logo-container {
+      text-align: center;
+      padding: 10px 30px 5px;
+      animation: fadeDown 3s ease;
+    }
+
+    .logo-container img {
+      height: 250px;
+      width: 250px;
+    }
+
+    /* FORM CONTAINER */
+    .form-wrapper {
+      max-width: 900px;
+      margin: 30px auto 60px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 25px;
+      padding: 50px 40px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+      animation: fadeUp 1.2s ease;
+    }
+
+    .form-wrapper h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 36px;
+    }
+
+    .form-wrapper p {
+      text-align: center;
+      opacity: 0.85;
+      margin-bottom: 40px;
+    }
+
+    /* FORM */
+    form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    label {
+      font-size: 14px;
+      margin-bottom: 6px;
+      display: block;
+      opacity: 0.9;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: none;
+      background: rgba(255,255,255,0.08);
+      color: white;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      background: rgba(255,255,255,0.15);
+      box-shadow: 0 0 0 2px var(--jci-cyan);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    /* RADIO */
+    .radio-group {
+      display: flex;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    /* BUTTON */
+    .submit-btn {
+      grid-column: 1 / -1;
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: 30px;
+      background: var(--jci-blue);
+      border: none;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background: var(--jci-cyan);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(57,198,195,0.4);
+      
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    /* BOUTONS SECONDAIRES */
+.form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.btn-secondary {
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel {
+  background: transparent;
+  border: 2px solid var(--jci-gold);
+  color: var(--jci-gold);
+}
+
+.btn-cancel:hover {
+  background: var(--jci-gold);
+  color: var(--jci-navy);
+}
+
+.btn-home {
+  background: transparent;
+  border: 2px solid var(--jci-cyan);
+  color: var(--jci-cyan);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-home:hover {
+  background: var(--jci-cyan);
+  color: var(--jci-navy);
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- LOGO -->
+  <div class="logo-container">
+    <img src="i2.png" alt="JCI Zawiet El Magaiez">
+  </div>
+
+  <!-- FORM -->
+  <div class="form-wrapper">
+    <h1>Rejoindre la JCI Zawiet el Magaiez</h1>
+    <p>Merci de remplir ce formulaire. Nous vous contacterons dans les plus brefs délais.</p>
+
+<form id="jciForm">
+
+  <div>
+    <label>Nom</label>
+    <input type="text" name="nom" placeholder="Votre nom" required>
+  </div>
+
+  <div>
+    <label>Prénom</label>
+    <input type="text" name="prenom" placeholder="Votre prénom" required>
+  </div>
+
+  <div>
+    <label>Numéro de téléphone</label>
+    <input type="tel" name="telephone" placeholder="Ex : 98 123 456" required>
+  </div>
+
+  <div>
+    <label>Adresse e-mail</label>
+    <input type="email" name="email" placeholder="exemple@email.com" required>
+  </div>
+
+  <div class="full">
+    <label>Adresse de résidence</label>
+    <input type="text" name="adresse" placeholder="Ville, gouvernorat">
+  </div>
+
+  <div class="full">
+    <label>Avez-vous des informations sur la Jeune Chambre Internationale ?</label>
+    <textarea name="connaissance_jci" placeholder="Que savez-vous sur la JCI ?"></textarea>
+  </div>
+
+  <div class="full">
+    <label>Avez-vous une expérience dans la vie associative ?</label>
+    <div class="radio-group">
+      <label>
+        <input type="radio" name="experience" value="Oui"> Oui
+      </label>
+      <label>
+        <input type="radio" name="experience" value="Non"> Non
+      </label>
+    </div>
+  </div>
+
+  <div class="full">
+    <label>Si oui, décrivez brièvement votre expérience associative</label>
+    <textarea name="description_experience" placeholder="Description courte"></textarea>
+  </div>
+
+  <div class="full">
+    <label>Qu’attendez-vous de la JCI Zawiet el Magaiez ?</label>
+    <textarea name="attentes"></textarea>
+  </div>
+
+  <div class="full">
+    <label>Que peut attendre la JCI Zawiet el Magaiez de vous ?</label>
+    <textarea name="contribution"></textarea>
+  </div>
+
+<button type="submit" class="submit-btn">Envoyer ma candidature</button>
+
+
+  <div class="form-actions">
+    <button type="reset" class="btn-secondary btn-cancel">
+      Annuler
+    </button>
+
+
+    <a href="index.html" class="btn-secondary btn-home">⬅ Retour à l'accueil</a>
+
+  </div>
+</form>
+
+
+
+  </div>
+
+  <footer>
+    © 2026 JCI Zawiet el Magaiez – Tous droits réservés
+  </footer>
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbwZ1KQoi25zrt3AqngELLi96x_uIggI2CWIxXNehHyhBgkwUFaYc8dGhgr-VftH9eAx2g/exec";
+
+document.getElementById("jciForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const data = {
+    nom: document.querySelector('[name="nom"]').value,
+    prenom: document.querySelector('[name="prenom"]').value,
+    telephone: document.querySelector('[name="telephone"]').value,
+    email: document.querySelector('[name="email"]').value,
+    adresse: document.querySelector('[name="adresse"]').value,
+    connaissance_jci: document.querySelector('[name="connaissance_jci"]').value,
+    experience: document.querySelector('input[name="experience"]:checked')?.value || "",
+    description_experience: document.querySelector('[name="description_experience"]').value,
+    attentes_contribution:
+      "Attentes : " + document.querySelector('[name="attentes"]').value +
+      " | Contribution : " + document.querySelector('[name="contribution"]').value
+  };
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(res => res.json())
+  .then(() => {
+    alert("✅ Candidature envoyée avec succès !");
+    document.getElementById("jciForm").reset();
+  })
+  .catch(err => {
+    alert("❌ Erreur d’envoi");
+    console.error(err);
+  });
+});
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Nos Jumelages | JCI Zawiet el Magaiez</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#0B0F2F;
+  --blue:#1E88E5;
+  --cyan:#39C6C3;
+  --gold:#EDBE38;
+  --white:#fff;
+}
+/* === Responsive global pour mobile === */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* optionnel, réduire texte si nécessaire */
+  }
+
+  header, .hero-content {
+    padding: 60px 15px 50px; /* ajuster les paddings pour petits écrans */
+  }
+
+  .top-palette {
+    display: none; /* cacher la palette horizontale sur mobile */
+  }
+
+  .mobile-menu-icon {
+    display: block; /* afficher l'icône hamburger */
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    z-index: 1000;
+    cursor: pointer;
+    color: var(--white);
+  }
+
+  .mobile-menu {
+    display: none; /* caché par défaut */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: var(--jci-navy);
+    padding-top: 60px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.4);
+    z-index: 999;
+    overflow-y: auto;
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    padding: 0 20px;
+  }
+
+  .mobile-menu li {
+    margin: 20px 0;
+  }
+
+  .mobile-menu a {
+    text-decoration: none;
+    font-size: 18px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s;
+  }
+
+  .mobile-menu a:hover {
+    color: var(--jci-gold);
+  }
+
+  /* Autres sections ajustables */
+  .cards-container, .stats-container, .contact-row {
+    grid-template-columns: 1fr !important; /* empile les éléments sur mobile */
+    gap: 15px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
+
+body{
+  background:var(--navy);
+  color:var(--white);
+}
+
+/* ===== PALETTE ===== */
+.top-palette{
+  display:flex;
+  gap:26px;
+  justify-content:center;
+  padding:25px;
+}
+
+.top-item{
+  padding:14px 26px;
+  border-radius:28px;
+  text-decoration:none;
+  color:white;
+  font-weight:600;
+  background:linear-gradient(135deg,#39C6C3,#0B0F2F);
+  transition:.35s;
+}
+
+.top-item:hover{
+  transform:translateY(-5px);
+}
+
+/* ===== RETOUR ===== */
+.top-bar{
+  position:relative;
+  padding:25px 40px;
+  text-align:left;
+}
+
+/* STANDARD JCI – BACK HOME */
+.back-home{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+
+  padding:12px 34px;
+  border:2px solid var(--gold);
+  border-radius:40px;
+
+  color:var(--gold);
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+
+  background:transparent;
+  box-shadow:0 8px 22px rgba(237,190,56,.25);
+
+  transition:all .35s ease;
+  animation:backHomeIn .9s ease;
+}
+
+/* hover élégant */
+.back-home:hover{
+  background:var(--gold);
+  color:#0b1444;
+  transform:translateX(-6px);
+  box-shadow:0 14px 30px rgba(237,190,56,.45);
+}
+
+/* animation apparition */
+@keyframes backHomeIn{
+  from{
+    opacity:0;
+    transform:translateX(-25px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+/* responsive */
+@media(max-width:768px){
+  .top-bar{
+    padding:20px;
+  }
+  .back-home{
+    padding:10px 26px;
+    font-size:14px;
+  }
+}
+
+
+.back-home:hover{
+  transform:scale(1.05);
+}
+
+/* ===== HERO ===== */
+header{
+  text-align:center;
+  padding:80px 20px 60px;
+}
+
+.hero-logo img{
+  width:250px;
+  height:250px;
+  animation:zoom 1.2s ease;
+}
+
+@keyframes zoom{
+  from{opacity:0;transform:scale(.7)}
+  to{opacity:1;transform:scale(1)}
+}
+
+header h1{
+  color:var(--gold);
+  margin-top:20px;
+  font-size:42px;
+}
+
+/* ===== SECTION ===== */
+.section{
+  max-width:1100px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+.section h2{
+  color:var(--gold);
+  font-size:32px;
+  margin-bottom:20px;
+}
+
+.section p{
+  font-size:18px;
+  line-height:1.8;
+  opacity:.9;
+}
+
+/* ===== PROGRAM LINK ===== */
+.program-link{
+  display:inline-block;
+  margin-top:20px;
+  color:var(--cyan);
+  font-weight:600;
+  text-decoration:none;
+}
+
+.program-link:hover{text-decoration:underline}
+
+/* ===== IMAGES ===== */
+.image-row{
+  margin-top:35px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:25px;
+}
+
+.image-box{
+  text-align:center;
+}
+
+.image-box img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  border-radius:20px;
+  transition:.35s;
+  box-shadow:0 12px 28px rgba(0,0,0,.4);
+}
+
+.image-box img:hover{
+  transform:scale(1.06);
+}
+
+.image-box p{
+  margin-top:10px;
+  font-size:14px;
+  opacity:.85;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#070a1f;
+  text-align:center;
+  padding:25px;
+  font-size:14px;
+  opacity:.8;
+}
+</style>
+</head>
+
+<body>
+
+
+
+<div class="top-bar">
+<a href="index.html" class="back-home">⬅ Retour à l'accueil</a>
+
+</div>
+
+<header>
+  <div class="hero-logo">
+    <img src="i2.png" alt="JCI Logo">
+  </div>
+  <h1>Découvrir nos Jumelages</h1>
+</header>
+
+<!-- PROGRAMME -->
+<section class="section">
+  <h2>Le Programme de Jumelage JCI</h2>
+  <p>
+    Le programme de jumelage de la Jeune Chambre Internationale favorise la coopération,
+    l’échange d’expériences et le renforcement des liens entre les Organisations Locales
+    à l’échelle nationale et internationale.
+  </p>
+
+  <a class="program-link" href="programmes.html">
+    → Pour en savoir plus sur ce programme
+  </a>
+</section>
+
+<!-- INTERNATIONAL -->
+<section class="section">
+  <h2>Jumelage International</h2>
+  <p>
+    Ce jumelage international constitue une étape historique pour notre OLM.
+    Il s’agit du <strong>premier jumelage international</strong> signé par JCI Zawiet el Magaiez,
+    lors du <strong>Congrès Mondial JCI 2025 à Tunis</strong>, le <strong>6 novembre 2025</strong>,
+    avec la <strong>JCI Port Louis – Maurice</strong>.
+    La convention a été signée par notre cher
+    <strong>VPN Bayrem Dghaies – Zone A</strong>.
+  </p>
+
+  <div class="image-row">
+    <div class="image-box">
+      <img src="jumelage/international1.jpg">
+      <p>Cérémonie de jumelage – JCI Port Louis</p>
+    </div>
+    <div class="image-box">
+      <img src="jumelage/international2.jpg">
+      <p>Congrès Mondial JCI 2025 – Tunis</p>
+    </div>
+  </div>
+</section>
+
+<!-- NATIONAL -->
+<section class="section">
+  <h2>Jumelages Nationaux</h2>
+  <p>
+    Lors de la <strong>Convention Nationale JCI 2025</strong>, la Présidente
+    <strong>Ghofrane Ben Ammar</strong> a eu l’honneur de signer
+    <strong>quatre jumelages nationaux</strong>.
+    Ces conventions renforcent la coopération,
+    les liens d’amitié historiques et la solidarité entre les OLM tunisiennes.
+  </p>
+
+  <div class="image-row">
+    <div class="image-box">
+      <img src="jumelage/sidi bouzid.jpg">
+      <p>Cérémonie de jumelage 2025 – JCI Sidi Bouzid</p>
+    </div>
+
+    <div class="image-box">
+      <img src="jumelage/tebourba.jpg">
+      <p>Cérémonie de jumelage 2025 – JCI Tebourba</p>
+    </div>
+
+    <div class="image-box">
+      <img src="jumelage/ibn khaldoun.jpg">
+      <p>Cérémonie de jumelage 2025 – JCI Ibn Khaldoun</p>
+    </div>
+
+    <div class="image-box">
+      <img src="jumelage/bir mchergua.jpg">
+      <p>Cérémonie de jumelage 2025 – JCI Bir Mchergua</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+© 2026 JCI Zawiet el Magaiez – Tous droits réservés
+</footer>
+
+</body>
+</html>

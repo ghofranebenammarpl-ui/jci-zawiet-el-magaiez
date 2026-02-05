@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Formations | JCI Zawiet el Magaiez</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =====================
+   VARIABLES JCI
+===================== */
+:root {
+  --navy: #0B0F2F;
+  --blue: #4FC3F7;
+  --green: #4CAF50;
+  --yellow: #FBC02D;
+  --white: #ffffff;
+}
+/* === Responsive global pour mobile === */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* optionnel, réduire texte si nécessaire */
+  }
+
+  header, .hero-content {
+    padding: 60px 15px 50px; /* ajuster les paddings pour petits écrans */
+  }
+
+  .top-palette {
+    display: none; /* cacher la palette horizontale sur mobile */
+  }
+
+  .mobile-menu-icon {
+    display: block; /* afficher l'icône hamburger */
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    z-index: 1000;
+    cursor: pointer;
+    color: var(--white);
+  }
+
+  .mobile-menu {
+    display: none; /* caché par défaut */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: var(--jci-navy);
+    padding-top: 60px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.4);
+    z-index: 999;
+    overflow-y: auto;
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    padding: 0 20px;
+  }
+
+  .mobile-menu li {
+    margin: 20px 0;
+  }
+
+  .mobile-menu a {
+    text-decoration: none;
+    font-size: 18px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s;
+  }
+
+  .mobile-menu a:hover {
+    color: var(--jci-gold);
+  }
+
+  /* Autres sections ajustables */
+  .cards-container, .stats-container, .contact-row {
+    grid-template-columns: 1fr !important; /* empile les éléments sur mobile */
+    gap: 15px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* =====================
+   BASE
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: var(--navy); /* même couleur que le thème zonal */
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+
+/* =====================
+   LOGO
+===================== */
+.logo-center {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0 20px;
+}
+
+.logo-center img {
+  width: 250px;
+  filter: drop-shadow(0 10px 25px rgba(0,0,0,0.4));
+  transition: transform 0.4s ease;
+}
+
+.logo-center img:hover {
+  transform: scale(1.08);
+}
+
+/* =====================
+   SECTION
+===================== */
+section {
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  font-size: 46px;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 18px;
+  opacity: 0.85;
+  margin-bottom: 70px;
+}
+
+/* =====================
+   FORMATION INTRO (ANIMATION FIX)
+===================== */
+.formation-intro {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.formation-intro h2 {
+  font-size: 34px;
+  margin-bottom: 30px;
+  color: var(--blue);
+}
+
+.formation-intro h2,
+.formation-intro p {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.formation-intro .show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.formation-intro p {
+  max-width: 900px;
+  margin: 0 auto 20px;
+  font-size: 17px;
+  line-height: 1.9;
+  opacity: 0.9;
+}
+
+/* =====================
+   CATEGORIES
+===================== */
+.category {
+  margin-bottom: 90px;
+}
+
+.category h2 {
+  font-size: 32px;
+  margin-bottom: 35px;
+}
+
+.base h2 { color: var(--blue); }
+.soft h2 { color: var(--green); }
+.hard h2 { color: var(--yellow); }
+
+/* =====================
+   GRID & CARDS
+===================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90px;
+  padding: 20px;
+  text-align: center;
+  background: rgba(255,255,255,0.06);
+  border-radius: 18px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.18), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover::before { opacity: 1; }
+.card:hover { transform: translateY(-10px) scale(1.04); }
+
+.base .card { border: 2px solid var(--blue); }
+.soft .card { border: 2px solid var(--green); }
+.hard .card { border: 2px solid var(--yellow); }
+
+/* =====================
+   GALERIE
+===================== */
+.gallery {
+  padding: 100px 20px;
+  background: radial-gradient(circle at top, #0f1a4a, #0b0f2f);
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 42px;
+  color: #39C6C3;
+  margin-bottom: 10px;
+}
+
+.gallery-subtitle {
+  text-align: center;
+  opacity: 0.8;
+  margin-bottom: 60px;
+}
+
+.gallery-grid {
+  max-width: 1300px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  cursor: pointer;
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.45);
+  transition: transform 0.6s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease, filter 0.8s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-14px);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.15);
+  filter: brightness(1.15);
+}
+
+/* =====================
+   RETOUR
+===================== */
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin: 60px 0;
+}
+
+.btn-home {
+  padding: 14px 34px;
+  border-radius: 30px;
+  border: 2px solid #39C6C3;
+  color: #39C6C3;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.35s ease;
+}
+
+.btn-home:hover {
+  background: #39C6C3;
+  color: #0B0F2F;
+  transform: translateY(-3px);
+}
+
+/* =====================
+   PARAGRAPHE FORMATION MIS EN VALEUR
+===================== */
+.formation-intro p {
+  max-width: 950px;
+  margin: 0 auto 25px;
+  padding: 22px 28px;
+
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 18px;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(255,255,255,0.08);
+
+  font-size: 17px;
+  line-height: 1.9;
+  text-align: center;
+
+  backdrop-filter: blur(6px);
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+/* Animation active */
+.formation-intro .show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.categories .card,
+.categories h2 {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s ease;
+}
+
+.categories .card.show,
+.categories h2.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+body {
+  background: linear-gradient(135deg, #0B0F2F, #0F1A4A, #4FC3F7);
+  background-size: 400% 400%;
+  animation: gradientMove 20s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+</style>
+</head>
+
+<body>
+<div id="animatedPattern"></div>
+
+<div class="logo-center">
+  <img src="i2.png" alt="Logo JCI">
+</div>
+
+<section>
+<div class="container">
+<section class="formation-intro">
+  <h1> La formation </h1>
+  <h2>pilier fondamental de la Jeune Chambre Internationale</h2>
+
+  <p>À la <strong>Jeune Chambre Internationale</strong>, la formation constitue l’un des piliers essentiels du développement des jeunes citoyens actifs.</p>
+  <p>À travers des programmes structurés et orientés vers l’action, la JCI développe le <strong>leadership</strong> et l’esprit entrepreneurial.</p>
+  <p>Investir dans la formation, c’est investir dans l’avenir et le <strong>changement positif durable</strong>.</p>
+</section>
+
+</div>
+</section>
+<section class="categories container">
+
+  <!-- Session Officielle JCI -->
+  <div class="category official">
+    <h2 class="base">Session Officielle JCI</h2>
+    <div class="grid">
+      <div class="card">JCI Discover</div>
+      <div class="card">JCI Explore</div>
+      <div class="card">Engage, Empower, Grow!</div>
+      <div class="card">Communication efficace : Construire une base</div>
+      <div class="card">Communication efficace : Rédiger votre message</div>
+      <div class="card">Communication efficace : Transmission du message</div>
+      <div class="card">Communication efficace : Maîtriser le management</div>
+      <div class="card">Leadership efficace</div>
+      <div class="card">Réunions efficaces</div>
+      <div class="card">Facilitateur</div>
+      <div class="card">Project Management</div>
+      <div class="card">Networking</div>
+      <div class="card">Presenter</div>
+      <div class="card">Responsabilité Sociale</div>
+    </div>
+  </div>
+
+  <!-- Formation de la Base JCI -->
+  <div class="category base">
+    <h2>Formation de la Base JCI</h2>
+    <div class="grid">
+      <div class="card">Art Oratoire</div>
+      <div class="card">C'est quoi la JCI</div>
+      <div class="card">Confiance en soi</div>
+      <div class="card">Création Graphique</div>
+      <div class="card">Débat</div>
+      <div class="card">Design Thinking</div>
+      <div class="card">Gestion de projet</div>
+      <div class="card">Gestion du Stress</div>
+      <div class="card">Intelligence Emotionnelle</div>
+      <div class="card">Prise de parole en public</div>
+      <div class="card">Procédures Parlementaires</div>
+      <div class="card">Protocole</div>
+      <div class="card">Rôles dans l'OLM</div>
+      <div class="card">Sponsoring</div>
+      <div class="card">Team Building</div>
+      <div class="card">JCI Rise</div>
+    </div>
+  </div>
+
+  <!-- Soft Skills -->
+  <div class="category soft">
+    <h2>Soft Skills</h2>
+    <div class="grid">
+      <div class="card">Technique de communication</div>
+      <div class="card">Leadership skills</div>
+      <div class="card">Decision Making</div>
+      <div class="card">Force de proposition, créativité, innovation</div>
+      <div class="card">Agilité et gestion des conflits</div>
+      <div class="card">Savoir négocier</div>
+      <div class="card">Présentation efficace</div>
+      <div class="card">Personal Branding</div>
+      <div class="card">Travail d'équipe</div>
+    </div>
+  </div>
+
+  <!-- Hard Skills -->
+  <div class="category hard">
+    <h2>Hard Skills</h2>
+    <div class="grid">
+      <div class="card">Design Graphique</div>
+      <div class="card">Développement Web</div>
+      <div class="card">Commercialisation et Marketing</div>
+      <div class="card">Marketing Digital</div>
+      <div class="card">Production Vidéo</div>
+      <div class="card">Excel</div>
+      <div class="card">PowerPoint</div>
+      <div class="card">Word</div>
+      <div class="card">Photographie</div>
+      <div class="card">Système Embarqué</div>
+      <div class="card">Culture Agilité</div>
+      <div class="card">Gestion des Ressources Humaines</div>
+      <div class="card">LinkedIn</div>
+    </div>
+  </div>
+
+</section>
+
+<section class="gallery">
+  <h2 class="gallery-title">Galerie des Formations</h2>
+  <p class="gallery-subtitle">Un aperçu des formations de la JCI Zawiet El Magaiez sur le terrain</p>
+  <div class="gallery-grid" id="galleryGrid"></div>
+</section>
+
+<div class="form-actions">
+  <a href="index.html" class="btn-home">⬅ Retour à l'accueil</a>
+
+</div>
+<footer>
+  © 2026 JCI Zawiet el Magaiez – Tous droits réservés
+</footer>
+<script>
+/* Animation paragraphe */
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(".formation-intro h2, .formation-intro p");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add("show");
+        }, index * 300);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  elements.forEach(el => observer.observe(el));
+});
+
+/* Galerie auto */
+const galleryGrid = document.getElementById("galleryGrid");
+for (let i = 1; i <= 100; i++) {
+  const item = document.createElement("div");
+  item.className = "gallery-item";
+  item.innerHTML = `<img src="photoformations/${i}.jpg" alt="Formation ${i}">`;
+  galleryGrid.appendChild(item);
+}
+
+// Animation des catégories
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".categories .card, .categories h2");
+
+  const observerCards = new IntersectionObserver(entries => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add("show");
+        }, index * 100);
+        observerCards.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(el => observerCards.observe(el));
+});
+
+</script>
+
+
+</body>
+</html>

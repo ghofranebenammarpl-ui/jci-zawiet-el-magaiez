@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Manifestations JCI | JCI Zawiet El Magaiez</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --blue:#1E88E5;
+  --cyan:#39C6C3;
+  --gold:#EDBE38;
+}
+/* === Responsive global pour mobile === */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* optionnel, réduire texte si nécessaire */
+  }
+
+  header, .hero-content {
+    padding: 60px 15px 50px; /* ajuster les paddings pour petits écrans */
+  }
+
+  .top-palette {
+    display: none; /* cacher la palette horizontale sur mobile */
+  }
+
+  .mobile-menu-icon {
+    display: block; /* afficher l'icône hamburger */
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    z-index: 1000;
+    cursor: pointer;
+    color: var(--white);
+  }
+
+  .mobile-menu {
+    display: none; /* caché par défaut */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: var(--jci-navy);
+    padding-top: 60px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.4);
+    z-index: 999;
+    overflow-y: auto;
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    padding: 0 20px;
+  }
+
+  .mobile-menu li {
+    margin: 20px 0;
+  }
+
+  .mobile-menu a {
+    text-decoration: none;
+    font-size: 18px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s;
+  }
+
+  .mobile-menu a:hover {
+    color: var(--jci-gold);
+  }
+
+  /* Autres sections ajustables */
+  .cards-container, .stats-container, .contact-row {
+    grid-template-columns: 1fr !important; /* empile les éléments sur mobile */
+    gap: 15px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  color:#fff;
+  background:linear-gradient(120deg,#0b0f2f,#0f1d4a);
+  overflow-x:hidden;
+}
+
+/* BACKGROUND ANIMÉ */
+body::before,body::after{
+  content:"";
+  position:fixed;
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  opacity:.15;
+  z-index:-1;
+  animation:spin 35s linear infinite;
+}
+body::before{
+  background:var(--blue);
+  top:-160px;
+  left:-160px;
+}
+body::after{
+  background:var(--cyan);
+  bottom:-160px;
+  right:-160px;
+  animation-direction:reverse;
+}
+@keyframes spin{
+  from{transform:rotate(0);}
+  to{transform:rotate(360deg);}
+}
+
+/* BOUTON RETOUR */
+.top-bar{
+  position:relative;
+  padding:25px 40px;
+  text-align:left;
+}
+
+/* STANDARD JCI – BACK HOME */
+.back-home{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+
+  padding:12px 34px;
+  border:2px solid var(--gold);
+  border-radius:40px;
+
+  color:var(--gold);
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+
+  background:transparent;
+  box-shadow:0 8px 22px rgba(237,190,56,.25);
+
+  transition:all .35s ease;
+  animation:backHomeIn .9s ease;
+}
+
+/* hover élégant */
+.back-home:hover{
+  background:var(--gold);
+  color:#0b1444;
+  transform:translateX(-6px);
+  box-shadow:0 14px 30px rgba(237,190,56,.45);
+}
+
+/* animation apparition */
+@keyframes backHomeIn{
+  from{
+    opacity:0;
+    transform:translateX(-25px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+/* responsive */
+@media(max-width:768px){
+  .top-bar{
+    padding:20px;
+  }
+  .back-home{
+    padding:10px 26px;
+    font-size:14px;
+  }
+}
+
+
+/* HEADER */
+.header{
+  text-align:center;
+  padding:80px 20px 60px;
+}
+.header img{
+  width:250px;
+  height:250px;
+  object-fit:contain;
+  animation:float 3s ease-in-out infinite;
+}
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-12px);}
+}
+.header h1{
+  font-size:42px;
+  margin:15px 0;
+}
+.header p{
+  max-width:900px;
+  margin:auto;
+  font-size:18px;
+  opacity:.9;
+}
+
+/* SECTIONS */
+.section{
+  max-width:1400px;
+  margin:auto;
+  padding:40px 30px 80px;
+}
+.section h2{
+  text-align:center;
+  font-size:34px;
+  color:var(--gold);
+  margin-bottom:40px;
+}
+
+/* GRID */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:35px;
+}
+
+/* CARD */
+.card{
+  background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.05));
+  border-radius:26px;
+  padding:35px;
+  backdrop-filter:blur(14px);
+  box-shadow:0 25px 50px rgba(0,0,0,.45);
+  transition:.45s;
+  position:relative;
+  overflow:hidden;
+}
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.35),transparent);
+  transform:translateX(-100%);
+  transition:.6s;
+}
+.card:hover::before{transform:translateX(100%);}
+.card:hover{transform:translateY(-14px) scale(1.03);}
+
+.card .icon{
+  font-size:42px;
+  margin-bottom:15px;
+}
+.card h3{
+  color:var(--gold);
+  margin-bottom:12px;
+}
+.card p{
+  font-size:15.5px;
+  line-height:1.8;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+  opacity:.8;
+}
+
+/* ===================== GALERIE MANIFESTATIONS ===================== */
+
+.gallery{
+  padding:100px 20px;
+  background:linear-gradient(180deg,#0b0f2f,#070a1f);
+  position:relative;
+  overflow:hidden;
+}
+
+/* Titre */
+.gallery-title{
+  text-align:center;
+  font-size:42px;
+  margin-bottom:60px;
+  color:var(--jci-gold);
+  letter-spacing:1px;
+  animation:fadeUp 1s ease;
+}
+
+/* Grille responsive */
+.gallery-grid{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+
+/* Item */
+.gallery-item{
+  position:relative;
+  overflow:hidden;
+  border-radius:22px;
+  box-shadow:0 18px 40px rgba(0,0,0,0.45);
+  cursor:pointer;
+  transform:translateY(30px);
+  opacity:0;
+  animation:fadeGallery 0.9s ease forwards;
+}
+
+/* Animation décalée */
+.gallery-item:nth-child(1){animation-delay:.1s}
+.gallery-item:nth-child(2){animation-delay:.2s}
+.gallery-item:nth-child(3){animation-delay:.3s}
+.gallery-item:nth-child(4){animation-delay:.4s}
+.gallery-item:nth-child(5){animation-delay:.5s}
+
+/* Image */
+.gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .6s ease;
+}
+
+/* Overlay */
+.gallery-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(11,15,47,0.15),
+    rgba(11,15,47,0.9)
+  );
+  display:flex;
+  align-items:flex-end;
+  padding:25px;
+  opacity:0;
+  transition:.5s ease;
+}
+
+/* Texte */
+.gallery-overlay h3{
+  color:#fff;
+  font-size:20px;
+  font-weight:600;
+  transform:translateY(20px);
+  transition:.4s ease;
+}
+
+/* Hover effets */
+.gallery-item:hover img{
+  transform:scale(1.12);
+}
+
+.gallery-item:hover .gallery-overlay{
+  opacity:1;
+}
+
+.gallery-item:hover h3{
+  transform:translateY(0);
+}
+
+/* Effet glow */
+.gallery-item::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:22px;
+  box-shadow:inset 0 0 0 0 rgba(57,198,195,0.6);
+  transition:.4s;
+}
+
+.gallery-item:hover::after{
+  box-shadow:inset 0 0 0 3px rgba(57,198,195,0.6);
+}
+
+/* ===================== ANIMATIONS ===================== */
+
+@keyframes fadeGallery{
+  from{
+    opacity:0;
+    transform:translateY(40px) scale(0.96);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+/* ===================== RESPONSIVE ===================== */
+
+@media(max-width:768px){
+  .gallery-title{
+    font-size:32px;
+  }
+}
+
+/* ===================== GALERIE PHOTOS ===================== */
+
+.gallery{
+  padding:100px 20px;
+  background:linear-gradient(180deg,#0b0f2f,#070a1f);
+  position:relative;
+  overflow:hidden;
+}
+
+/* Titre principal */
+.gallery-title{
+  text-align:center;
+  font-size:42px;
+  margin-bottom:10px;
+  color:var(--gold);
+  letter-spacing:1px;
+  animation:fadeUp 1s ease;
+}
+
+/* Sous-titre */
+.gallery-subtitle{
+  text-align:center;
+  font-size:18px;
+  opacity:.85;
+  margin-bottom:60px;
+  animation:fadeUp 1.2s ease;
+}
+
+/* Grille responsive */
+.gallery-grid{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+
+/* Carte photo */
+.gallery-item{
+  position:relative;
+  overflow:hidden;
+  border-radius:22px;
+  box-shadow:0 18px 40px rgba(0,0,0,0.45);
+  cursor:pointer;
+  transform:translateY(30px);
+  opacity:0;
+  animation:fadeGallery .9s ease forwards;
+}
+
+/* Animation en cascade */
+.gallery-item:nth-child(1){animation-delay:.1s}
+.gallery-item:nth-child(2){animation-delay:.2s}
+.gallery-item:nth-child(3){animation-delay:.3s}
+.gallery-item:nth-child(4){animation-delay:.4s}
+.gallery-item:nth-child(5){animation-delay:.5s}
+
+/* Image */
+.gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .6s ease;
+}
+
+/* Overlay */
+.gallery-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(11,15,47,0.15),
+    rgba(11,15,47,0.9)
+  );
+  display:flex;
+  align-items:flex-end;
+  padding:25px;
+  opacity:0;
+  transition:.5s ease;
+}
+
+/* Texte overlay */
+.gallery-overlay h3{
+  color:#fff;
+  font-size:20px;
+  font-weight:600;
+  transform:translateY(20px);
+  transition:.4s ease;
+}
+
+/* Hover effets */
+.gallery-item:hover img{
+  transform:scale(1.12);
+}
+
+.gallery-item:hover .gallery-overlay{
+  opacity:1;
+}
+
+.gallery-item:hover h3{
+  transform:translateY(0);
+}
+
+/* Effet glow JCI */
+.gallery-item::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:22px;
+  box-shadow:inset 0 0 0 0 rgba(57,198,195,0.6);
+  transition:.4s;
+}
+
+.gallery-item:hover::after{
+  box-shadow:inset 0 0 0 3px rgba(57,198,195,0.6);
+}
+
+/* ===================== ANIMATIONS ===================== */
+
+@keyframes fadeGallery{
+  from{
+    opacity:0;
+    transform:translateY(40px) scale(0.96);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ===================== RESPONSIVE ===================== */
+
+@media(max-width:768px){
+  .gallery-title{
+    font-size:32px;
+  }
+  .gallery-subtitle{
+    font-size:16px;
+  }
+}
+/* ===== PALETTE ===== */
+.top-palette{
+  display:flex;
+  justify-content:center;
+  gap:26px;
+  padding:25px;
+}
+
+.top-item{
+  padding:14px 26px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  color:white;
+  background:linear-gradient(135deg,#39C6C3,#0B0F2F);
+  transition:.35s;
+  box-shadow:0 6px 18px rgba(0,0,0,.35);
+}
+
+.top-item:hover{
+  transform:translateY(-5px);
+}
+
+</style>
+</head>
+
+<body>
+
+
+<div class="top-bar">
+  <a href="index.html" class="back-home">⬅ Retour à l'accueil</a>
+
+</div>
+
+<section class="header">
+  <img src="i2.png" alt="Logo JCI">
+  <h1>Manifestations JCI</h1>
+  <p>Des espaces de gouvernance, de formation et de décision à l’échelle zonale, nationale et internationale.</p>
+</section>
+
+<section class="section">
+  <h2>Manifestations Zonales</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="icon">📍</div>
+      <h3>RZP</h3>
+      <p>Quatre Réunions Zonales des Présidents assurant le suivi stratégique et la coordination entre les OLMs.</p>
+    </div>
+    <div class="card">
+      <div class="icon">📆</div>
+      <h3>Assises Zonales</h3>
+      <p>Assises de Printemps, d’Automne et d’Hiver dédiées à l’évaluation et à la gouvernance zonale.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Manifestations Nationales</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="icon">🇹🇳</div>
+      <h3>RNP</h3>
+      <p>Deux Réunions Nationales des Présidents pour harmoniser la vision stratégique.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🏛️</div>
+      <h3>Convention Nationale</h3>
+      <p>Événement majeur réunissant élections, formations, compétitions et orientations nationales.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Manifestations Internationales</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="icon">🌍</div>
+      <h3>CAMO</h3>
+      <p>Conférence Afrique & Moyen-Orient en début d’année : leadership, formation et networking.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🌐</div>
+      <h3>Congrès Mondial</h3>
+      <p>Le plus grand événement JCI réunissant les membres du monde entier.</p>
+    </div>
+  </div>
+</section>
+  <!-- ===================== GALERIE PHOTOS ===================== -->
+<section class="gallery">
+  <h2 class="gallery-title">Découvrir nos différentes participations aux  Manifestations de la JCET </h2>
+  <p class="gallery-subtitle">Chaque événement JCI est une pièce historique</p>
+
+  <div class="gallery-grid" id="galleryGrid"></div>
+</section>
+<script>
+  const gallery = document.getElementById("galleryGrid");
+
+  const titles = [
+"Assises d'automne 2021","convention nationale 2025","2eme RNP 2025","2eme RNP 2025","2eme RNP 2025",
+"Assises du printemps   2025","Assises du printemps   2025","Assises du printemps   2025","Assises du printemps   2025","Assises du printemps   2025","Assises du printemps   2025","Assises du printemps   2025","Assises d'automne  2025","Assises d'automne  2025",
+"Assises d'automne  2025",   "Assises d'automne  2025","Assises d'automne  2025","Assises d'automne  2025","les assies d'Automne 2025 ", "les assies d'Automne 2025 ","les assies d'Automne 2022 ","les assies d'Automne 2022 ","les assies d'Automne 2022 ","les assies d'Automne 2022 ",
+"1ere RNP 2025 ","1ere RNP 2025 ","1ere RNP 2025 ","1ere RNP 2025 ","1ere RNP 2025 ","1ere RNP 2025",
+"convention nationale 2025 ","convention nationale 2025 ",,"convention nationale 2025 ","convention nationale 2025 ","convention nationale 2025 ","convention nationale 2025 ","convention nationale 2025 ","convention nationale 2025 ","convention nationale 2025 ",
+"convention nationale 2024 ","convention nationale 2024 ","convention nationale 2024 ","convention nationale 2021 ",
+"convention nationale 2021 ","convention nationale 2021 ","convention nationale 2021 ","convention nationale 2021 ","convention nationale 2021 ","convention nationale 2021 "
+  ];
+
+  for (let i = 1; i <= 50; i++) {
+    gallery.innerHTML += `
+      <div class="gallery-item">
+        <img src="photomanifestations/${i}.jpg" alt="${titles[i-1]}">
+        <div class="gallery-overlay">
+          <h3>${titles[i-1]}</h3>
+        </div>
+      </div>
+    `;
+  }
+</script>
+
+
+<footer>© 2026 JCI Zawiet El Magaiez</footer>
+</body>
+</html>

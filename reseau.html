@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Réseau JCI | JCI Zawiet el Magaiez</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#0B0F2F;
+  --blue:#1E88E5;
+  --cyan:#39C6C3;
+  --gold:#EDBE38;
+  --white:#ffffff;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  color:var(--white);
+  background:linear-gradient(120deg,#0b0f2f,#0f1d4a);
+  overflow-x:hidden;
+}
+
+/* ===== BACKGROUND ===== */
+body::before, body::after{
+  content:"";
+  position:fixed;
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  opacity:.15;
+  z-index:-1;
+  animation:spin 35s linear infinite;
+}
+body::before{
+  background:var(--blue);
+  top:-160px;
+  left:-160px;
+}
+body::after{
+  background:var(--cyan);
+  bottom:-160px;
+  right:-160px;
+  animation-direction:reverse;
+}
+@keyframes spin{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+
+/* ===== BOUTON RETOUR ===== */
+.top-bar{
+  position:relative;
+  padding:25px 40px;
+}
+.back-home{
+  position:absolute;
+  top:40px;
+  left:40px;
+  padding:12px 34px;
+  border:2px solid var(--gold);
+  border-radius:40px;
+  color:var(--gold);
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+}
+.back-home:hover{
+  background:var(--gold);
+  color:#0b1444;
+}
+
+/* ===== LOGO ===== */
+.logo-center{
+  display:flex;
+  justify-content:center;
+  margin:40px 0 10px;
+}
+.logo-center img{
+  width:250px;
+  height:250px;
+  object-fit:contain;
+}
+
+/* ===== HEADER ===== */
+.header{
+  text-align:center;
+  padding:20px 20px 70px;
+}
+.header h1{
+  font-size:42px;
+  margin-bottom:15px;
+}
+.header p{
+  max-width:900px;
+  margin:auto;
+  font-size:18px;
+  line-height:1.8;
+  opacity:.9;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+  max-width:1400px;
+  margin:auto;
+  padding:0 30px 120px;
+}
+
+/* ===== ZONES ===== */
+.zones-line{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:20px;
+  align-items:start;
+}
+
+.zone-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.05));
+  border-radius:26px;
+  padding:25px;
+  box-shadow:0 25px 50px rgba(0,0,0,.45);
+  display:flex;
+  flex-direction:column;
+  height:520px; /* uniforme desktop */
+}
+
+.zone-card h2{
+  color:var(--gold);
+  margin-bottom:15px;
+}
+
+.zone-list{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  font-size:13px;
+  overflow-y:auto; /* scroll interne desktop */
+  padding-right:6px;
+}
+
+/* ===== MAP ===== */
+.map{
+  margin-top:60px;
+  text-align:center;
+}
+.map img{
+  max-width:90%;
+  border-radius:26px;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  text-align:center;
+  padding:30px 20px;
+  font-size:14px;
+  opacity:.8;
+}
+
+/* ================================================= */
+/* ================= RESPONSIVE ==================== */
+/* ================================================= */
+
+@media (max-width:1024px){
+  .zones-line{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media (max-width:768px){
+  .zones-line{
+    grid-template-columns:1fr;
+  }
+
+  .zone-card{
+    height:auto; /* hauteur libre mobile */
+  }
+
+  .zone-list{
+    overflow:visible; /* AUCUNE OLM cachée */
+  }
+
+  .header h1{
+    font-size:30px;
+  }
+
+  .header p{
+    font-size:15px;
+  }
+
+  .back-home{
+    position:static;
+    display:inline-block;
+    margin-bottom:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+  <a href="index.html" class="back-home">⬅ Retour à l'accueil</a>
+</div>
+
+<div class="logo-center">
+  <img src="i2.png" alt="Logo JCI">
+</div>
+
+<section class="header">
+  <h1>Réseau JCET: Répartition Géographique</h1>
+  <p>
+    La Jeune Chambre Internationale de Tunisie est structurée en 5 zones (A,B,C,D,E)
+    permettant une organisation efficace et un rayonnement national équilibré.
+  </p>
+</section>
+
+<div class="container">
+<div class="zones-line">
+
+<!-- ================= ZONE A ================= -->
+<div class="zone-card">
+<h2>📍 Zone A</h2>
+<div class="zone-list">
+<span>OLM Tunis</span>
+<span>OLM Ariana</span>
+<span>OLM Manouba</span>
+<span>OLM Marsa</span>
+<span>OLM Nouvelle Médina</span>
+<span>OLM Tunis Business School</span>
+<span>OLM Zawiet El Magaiez</span>
+<span>OLM Les Berges du Lac</span>
+<span>OLM El Manar</span>
+<span>OLM Bir Mcherga</span>
+<span>OLM Omrane Supérieur</span>
+<span>OLM Monag</span>
+<span>OLM Zaghouan el Medina</span>
+<span>OLM Hammam Chatt</span>
+<span>OLM Bardo</span>
+<span>OLM Zahrouni</span>
+<span>OLM Borj El Amri</span>
+<span>OLM Hammamet</span>
+<span>OLM Kélibia</span>
+<span>OLM Nadour</span>
+<span>OLM Dar Chaabane Al Fehri</span>
+<span>OLM Montfleury</span>
+<span>OLM Soukra</span>
+<span>OLM INSAT</span>
+<span>OLM Ennasr</span>
+<span>OLM Ben Arous</span>
+<span>OLM El Mida</span>
+<span>OLM Nabeul</span>
+<span>OLM Radès</span>
+<span>OLM ENIT</span>
+<span>OLM Jedaida</span>
+<span>OLM Menzel Temime</span>
+<span>OLM Tebourba</span>
+<span>OLM Korba</span>
+<span>OLM Tazarka</span>
+<span>OLM Saouaf</span>
+<span>OLM La Goulette et Kram</span>
+<span>OLM Innovation</span>
+<span>OLM El Fahs</span>
+<span>OLM Zriba</span>
+<span>OLM Megrine</span>
+<span>OLM Boumhel</span>
+<span>OLM Carthage</span>
+<span>OLM Fouchena</span>
+<span>OLM Franceville</span>
+<span>OLM Hammam Lif</span>
+<span>OLM Jardins d’El Mourouj</span>
+<span>OLM Khaznadar</span>
+<span>OLM Mutuelleville</span>
+<span>OLM Soliman</span>
+<span>OLM Takilsa</span>
+<span>OLM ESPRIT</span>
+</div>
+</div>
+
+<!-- ================= ZONE B ================= -->
+<div class="zone-card">
+<h2>📍 Zone B</h2>
+<div class="zone-list">
+<span>OLM Ain Draham</span>
+<span>OLM Aousaja</span>
+<span>OLM Metline</span>
+<span>OLM Bizerte</span>
+<span>OLM El Alia</span>
+<span>OLM Zarzouna</span>
+<span>OLM Ras Jebel</span>
+<span>OLM Menzel Abderrahmen</span>
+<span>OLM Zouaouine</span>
+<span>OLM Ghar El Melh</span>
+<span>OLM Utique</span>
+<span>OLM Majaz Al Bab</span>
+<span>OLM Menzel Bourguiba</span>
+<span>OLM Bou Salem</span>
+<span>OLM Le Kef</span>
+<span>OLM Mateur</span>
+<span>OLM Siliana</span>
+<span>OLM Tabarka</span>
+<span>OLM Tajerouine</span>
+<span>OLM Université de Jendouba</span>
+</div>
+</div>
+
+<!-- ================= ZONE C ================= -->
+<div class="zone-card">
+<h2>📍 Zone C</h2>
+<div class="zone-list">
+<span>OLM Sousse</span>
+<span>OLM Kalaâ Kebira</span>
+<span>OLM Sahline</span>
+<span>OLM Hammam Sousse</span>
+<span>OLM Bekalta</span>
+<span>OLM Zaouiet Kontech</span>
+<span>OLM Ksar Hellal</span>
+<span>OLM Ghenada</span>
+<span>OLM Khniss</span>
+<span>OLM Monastir</span>
+<span>OLM Beni Hassen</span>
+<span>OLM Maâtmour</span>
+<span>OLM Mahdia</span>
+<span>OLM Moknine</span>
+<span>OLM Ksour Essef</span>
+<span>OLM Sidi Ameur</span>
+<span>OLM Sayada</span>
+<span>OLM Téboulba</span>
+<span>OLM El Jem</span>
+<span>OLM Université de Sousse</span>
+<span>OLM Bembla</span>
+<span>OLM Kalaâ Seghira</span>
+<span>OLM Boumerdess</span>
+<span>OLM Sidi Bou Ali</span>
+<span>OLM Enfidha</span>
+</div>
+</div>
+
+<!-- ================= ZONE D ================= -->
+<div class="zone-card">
+<h2>📍 Zone D</h2>
+<div class="zone-list">
+<span>OLM Kairouan</span>
+<span>OLM Chebika</span>
+<span>OLM Sidi Bouzid</span>
+<span>OLM Kasserine</span>
+<span>OLM Bir El Haffey</span>
+<span>OLM Université de Gafsa</span>
+<span>OLM Gafsa</span>
+<span>OLM Cebbala</span>
+<span>OLM Jilma</span>
+<span>OLM Majel Bel Abbès</span>
+<span>OLM Sbeitla</span>
+<span>OLM Feriana</span>
+</div>
+</div>
+
+<!-- ================= ZONE E ================= -->
+<div class="zone-card">
+<h2>📍 Zone E</h2>
+<div class="zone-list">
+<span>OLM Gremda</span>
+<span>OLM Bouchamma</span>
+<span>OLM Teniour</span>
+<span>OLM Sakiet Ezzit</span>
+<span>OLM Bir Lahmar</span>
+<span>OLM Sakiet Eddaier</span>
+<span>OLM Sfax</span>
+<span>OLM Métouia</span>
+<span>OLM Sakiet Eddaier</span>
+<span>OLM Djerba</span>
+<span>OLM Djerba Midoun</span>
+<span>OLM ENIG</span>
+<span>OLM CHENINI</span>
+<span>OLM Sidi Mansour</span>
+<span>OLM Ghomrassen</span>
+<span>OLM Ben Gardane</span>
+<span>OLM Oudhref</span>
+<span>OLM Zarzis</span>
+<span>OLM Diwan</span>
+<span>OLM Médenine</span>
+<span>OLM Gabès</span>
+<span>OLM El Hamma</span>
+</div>
+</div>
+
+</div>
+
+<div class="map">
+<img src="maps.png" alt="Carte des zones JCI">
+</div>
+
+</div>
+
+<footer>
+© 2026 JCI Zawiet el Magaiez – Tous droits réservés
+</footer>
+
+</body>
+</html>

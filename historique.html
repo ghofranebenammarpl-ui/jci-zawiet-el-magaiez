@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Historique JCI | JCI Zawiet El Magaiez</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#0B0F2F;
+  --blue:#1E88E5;
+  --cyan:#39C6C3;
+  --gold:#EDBE38;
+  --white:#fff;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#0B0F2F,#0F1A4A);
+  color:var(--white);
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ===== BACKGROUND ANIMÉ ===== */
+body::before{
+  content:"";
+  position:fixed;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,rgba(57,198,195,.25),transparent 70%);
+  top:-200px;
+  left:-200px;
+  animation:float 12s infinite alternate;
+  z-index:-1;
+}
+body::after{
+  content:"";
+  position:fixed;
+  width:700px;
+  height:700px;
+  background:radial-gradient(circle,rgba(237,190,56,.18),transparent 70%);
+  bottom:-250px;
+  right:-250px;
+  animation:float 16s infinite alternate-reverse;
+  z-index:-1;
+}
+
+@keyframes float{
+  from{transform:translateY(0)}
+  to{transform:translateY(60px)}
+}
+
+/* ===== HEADER ===== */
+header{
+  min-height:60vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  padding:120px 20px 60px;
+}
+
+.logo{
+  width:250px;
+  height:250px;
+  margin:auto;
+  animation:logoPop 1.4s ease;
+}
+
+@keyframes logoPop{
+  from{opacity:0;transform:scale(.7)}
+  to{opacity:1;transform:scale(1)}
+}
+
+header h1{
+  font-size:48px;
+  margin-top:25px;
+}
+
+/* ===== BOUTON RETOUR ===== */
+.top-bar{
+  position:relative;
+  padding:25px 40px;
+  text-align:left;
+}
+
+/* STANDARD JCI – BACK HOME */
+.back-home{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+
+  padding:12px 34px;
+  border:2px solid var(--gold);
+  border-radius:40px;
+
+  color:var(--gold);
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+
+  background:transparent;
+  box-shadow:0 8px 22px rgba(237,190,56,.25);
+
+  transition:all .35s ease;
+  animation:backHomeIn .9s ease;
+}
+
+/* hover élégant */
+.back-home:hover{
+  background:var(--gold);
+  color:#0b1444;
+  transform:translateX(-6px);
+  box-shadow:0 14px 30px rgba(237,190,56,.45);
+}
+
+/* animation apparition */
+@keyframes backHomeIn{
+  from{
+    opacity:0;
+    transform:translateX(-25px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+/* responsive */
+@media(max-width:768px){
+  .top-bar{
+    top:75px;
+    left:20px;
+  }
+
+  .back-home{
+    padding:10px 26px;
+    font-size:14px;
+  }
+}
+
+
+
+
+
+
+
+/* ===== SECTIONS ===== */
+section{
+  padding:90px 20px;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+}
+
+.history-block{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+  margin-bottom:90px;
+  animation:fadeUp 1.2s ease;
+}
+
+.history-block.reverse{
+  direction:rtl;
+}
+.history-block.reverse > *{
+  direction:ltr;
+}
+
+.text-box{
+  background:rgba(255,255,255,.06);
+  padding:35px;
+  border-radius:22px;
+  line-height:1.9;
+  box-shadow:0 18px 40px rgba(0,0,0,.4);
+}
+
+.image-box img{
+  width:100%;
+  border-radius:22px;
+  box-shadow:0 20px 45px rgba(0,0,0,.45);
+  transition:.4s;
+}
+.image-box img:hover{
+  transform:scale(1.05);
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#070a1f;
+  text-align:center;
+  padding:25px;
+  font-size:14px;
+  opacity:.8;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .history-block{
+    grid-template-columns:1fr;
+  }
+}
+
+.history-title{
+  color: var(--gold);
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  position: relative;
+  display: inline-block;
+  animation: fadeUp 1s ease;
+}
+
+.history-title::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  border-radius: 5px;
+}
+/* ===== PALETTE ===== */
+.top-palette{
+  display:flex;
+  justify-content:center;
+  gap:26px;
+  padding:25px;
+}
+
+.top-item{
+  padding:14px 26px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  color:white;
+  background:linear-gradient(135deg,#39C6C3,#0B0F2F);
+  transition:.35s;
+  box-shadow:0 6px 18px rgba(0,0,0,.35);
+}
+
+.top-item:hover{
+  transform:translateY(-5px);
+}
+/* FIX emplacement bouton retour – identique à Programmes */
+header{
+  position: relative;
+}
+
+.top-bar{
+  position: absolute !important;
+  top: 30px;   /* ⬅️ au lieu de 85px */
+  left: 30px;
+  z-index: 50;
+}
+/* === Responsive global pour mobile === */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* optionnel, réduire texte si nécessaire */
+  }
+
+  header, .hero-content {
+    padding: 60px 15px 50px; /* ajuster les paddings pour petits écrans */
+  }
+
+  .top-palette {
+    display: none; /* cacher la palette horizontale sur mobile */
+  }
+
+  .mobile-menu-icon {
+    display: block; /* afficher l'icône hamburger */
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    z-index: 1000;
+    cursor: pointer;
+    color: var(--white);
+  }
+
+  .mobile-menu {
+    display: none; /* caché par défaut */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: var(--jci-navy);
+    padding-top: 60px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.4);
+    z-index: 999;
+    overflow-y: auto;
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    padding: 0 20px;
+  }
+
+  .mobile-menu li {
+    margin: 20px 0;
+  }
+
+  .mobile-menu a {
+    text-decoration: none;
+    font-size: 18px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s;
+  }
+
+  .mobile-menu a:hover {
+    color: var(--jci-gold);
+  }
+
+  /* Autres sections ajustables */
+  .cards-container, .stats-container, .contact-row {
+    grid-template-columns: 1fr !important; /* empile les éléments sur mobile */
+    gap: 15px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+
+</style>
+</head>
+
+<body>
+<!-- PALETTE -->
+<header>
+<div class="top-bar">
+
+<a href="index.html" class="back-home">⬅ Retour à l'accueil</a>
+
+</div>
+  <div>
+    <img src="i2.png" alt="JCI Logo" class="logo">
+    <h1>Découvrir l'Historique de la JCI</h1>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+
+    <!-- JCI INTERNATIONAL -->
+    <div class="history-block">
+      <div class="text-box">
+        <h3 class="history-title">
+  Historique de la Jeune Chambre Internationale
+</h3>
+
+        <strong>La Jeune Chambre Internationale (JCI)</strong>, fondée en <strong>1915 à St. Louis (USA)</strong> par
+        <strong>Henry Giessenbier Jr.</strong>, est un réseau mondial de jeunes citoyens actifs âgés de <strong>18 à 40 ans</strong>,
+        engagés pour créer un impact positif durable.
+        <br><br>
+        Officiellement constituée en <strong>1944</strong>, la JCI est aujourd’hui présente dans <strong>plus de 100 pays</strong>
+        et œuvre pour le développement du <strong>leadership</strong>, de <strong>l’entrepreneuriat</strong> et du
+        <strong>service communautaire</strong>.
+      </div>
+      <div class="image-box">
+        <img src="photohistorique/1.png" alt="JCI International">
+      </div>
+    </div>
+
+    <!-- JCI TUNISIE -->
+    <div class="history-block reverse">
+      <div class="text-box">
+        <h3 class="history-title">
+  Historique de la Jeune Chambre Internationale de Tunisie
+</h3>
+
+        En <strong>1959</strong>, lors d’une visite aux États-Unis, le <strong>Dr. Salah El Mehdi</strong> découvre le mouvement JCI.
+        De retour à Tunis, il transmet le dossier constitutif à <strong>M. Ferjani Belhaj Ammar</strong>, président de l’UTICA.
+        <br><br>
+        Le <strong>2 février 1961</strong> marque la naissance officielle de la
+        <strong>Jeune Chambre Économique de Tunisie</strong>. <strong>Hassib Ben Ammar</strong> devient son premier président,
+        suivi par <strong>Foued Mbazaa</strong>.
+        <br><br>
+        En <strong>1970</strong>, la JCI Tunisie devient membre permanent de plein droit de la JCI Internationale.
+      </div>
+      <div class="image-box">
+        <img src="photohistorique/2.jpg" alt="JCI Tunisie">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 JCI Zawiet El Magaiez – Tous droits réservés
+</footer>
+
+</body>
+</html>

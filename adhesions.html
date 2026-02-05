@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Adhésion JCI | Rejoindre la JCI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#0B0F2F;
+  --blue:#1E88E5;
+  --cyan:#39C6C3;
+  --gold:#EDBE38;
+  --white:#ffffff;
+}
+/* === Responsive global pour mobile === */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* optionnel, réduire texte si nécessaire */
+  }
+
+  header, .hero-content {
+    padding: 60px 15px 50px; /* ajuster les paddings pour petits écrans */
+  }
+
+  .top-palette {
+    display: none; /* cacher la palette horizontale sur mobile */
+  }
+
+  .mobile-menu-icon {
+    display: block; /* afficher l'icône hamburger */
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    z-index: 1000;
+    cursor: pointer;
+    color: var(--white);
+  }
+
+  .mobile-menu {
+    display: none; /* caché par défaut */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: var(--jci-navy);
+    padding-top: 60px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.4);
+    z-index: 999;
+    overflow-y: auto;
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    padding: 0 20px;
+  }
+
+  .mobile-menu li {
+    margin: 20px 0;
+  }
+
+  .mobile-menu a {
+    text-decoration: none;
+    font-size: 18px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s;
+  }
+
+  .mobile-menu a:hover {
+    color: var(--jci-gold);
+  }
+
+  /* Autres sections ajustables */
+  .cards-container, .stats-container, .contact-row {
+    grid-template-columns: 1fr !important; /* empile les éléments sur mobile */
+    gap: 15px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:linear-gradient(-45deg,#0b0f2f,#11194f,#0b0f2f);
+  background-size:400% 400%;
+  animation:bgMove 18s ease infinite;
+  color:var(--white);
+}
+
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* ===== BOUTON RETOUR ===== */
+.top-bar{
+  padding:25px;
+  text-align:left;
+}
+
+.btn-back{
+  display:inline-block;
+  padding:12px 32px;
+  border:2px solid var(--gold);
+  border-radius:40px;
+  color:var(--gold);
+  text-decoration:none;
+  font-weight:600;
+  transition:.35s;
+}
+
+.btn-back:hover{
+  background:var(--gold);
+  color:#000;
+  box-shadow:0 0 25px rgba(237,190,56,.6);
+}
+
+/* ===== HERO ===== */
+.hero{
+  text-align:center;
+  padding:30px 20px 80px;
+  animation:fadeDown 1.2s ease;
+}
+
+@keyframes fadeDown{
+  from{opacity:0; transform:translateY(-30px)}
+  to{opacity:1; transform:translateY(0)}
+}
+
+.hero img{
+  width:250px;
+  height:250px;
+  object-fit:contain;
+  margin-bottom:20px;
+  animation:zoomIn 1.3s ease;
+}
+
+@keyframes zoomIn{
+  from{opacity:0; transform:scale(.7)}
+  to{opacity:1; transform:scale(1)}
+}
+
+.hero h1{
+  font-size:48px;
+  color:var(--gold);
+}
+
+.hero p{
+  font-size:18px;
+  opacity:.9;
+  margin-top:10px;
+}
+
+/* ===== CONTENU ===== */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:0 20px 100px;
+}
+
+/* SECTIONS */
+.block{
+  background:rgba(255,255,255,0.05);
+  border-radius:22px;
+  padding:45px;
+  margin-bottom:45px;
+  box-shadow:0 15px 45px rgba(0,0,0,.45);
+  animation:fadeUp 1.3s ease;
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(40px)}
+  to{opacity:1; transform:translateY(0)}
+}
+
+.block h2{
+  color:var(--cyan);
+  font-size:30px;
+  margin-bottom:20px;
+}
+
+.block p{
+  font-size:17px;
+  line-height:1.8;
+  opacity:.95;
+  margin-bottom:15px;
+}
+
+/* ETAPES */
+.steps{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+  margin-top:25px;
+}
+
+.step{
+  background:linear-gradient(145deg,#0f153d,#0b0f2f);
+  border-radius:20px;
+  padding:30px;
+  transition:.35s;
+}
+
+.step:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 45px rgba(57,198,195,.45);
+}
+
+.step h3{
+  color:var(--gold);
+  margin-bottom:10px;
+}
+
+/* FOOTER */
+footer{
+  background:#070a1f;
+  padding:25px;
+  text-align:center;
+  font-size:14px;
+  opacity:.8;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero h1{font-size:36px;}
+  .hero img{width:200px;height:200px;}
+  .block{padding:30px;}
+}
+/* ===== BACKGROUND ANIMÉ ===== */
+.animated-bg{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  z-index:-1;
+}
+
+.animated-bg span{
+  position:absolute;
+  display:block;
+  width:120px;
+  height:120px;
+  background:rgba(57,198,195,0.15);
+  border-radius:50%;
+  animation:float 22s linear infinite;
+  filter:blur(2px);
+}
+
+/* positions différentes */
+.animated-bg span:nth-child(1){
+  left:10%;
+  animation-duration:28s;
+  width:160px;
+  height:160px;
+}
+
+.animated-bg span:nth-child(2){
+  left:30%;
+  animation-duration:20s;
+  animation-delay:2s;
+  background:rgba(237,190,56,0.15);
+}
+
+.animated-bg span:nth-child(3){
+  left:55%;
+  animation-duration:25s;
+  width:200px;
+  height:200px;
+}
+
+.animated-bg span:nth-child(4){
+  left:75%;
+  animation-duration:18s;
+  background:rgba(30,136,229,0.15);
+}
+
+.animated-bg span:nth-child(5){
+  left:90%;
+  animation-duration:30s;
+  width:140px;
+  height:140px;
+}
+
+/* animation réelle */
+@keyframes float{
+  0%{
+    top:110%;
+    transform:translateX(0) scale(1);
+  }
+  50%{
+    transform:translateX(-40px) scale(1.1);
+  }
+  100%{
+    top:-20%;
+    transform:translateX(40px) scale(1);
+  }
+}
+/* ===== PALETTE ===== */
+.top-palette{
+  display:flex;
+  justify-content:center;
+  gap:26px;
+  padding:25px;
+}
+
+.top-item{
+  padding:14px 26px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  color:white;
+  background:linear-gradient(135deg,#39C6C3,#0B0F2F);
+  transition:.35s;
+  box-shadow:0 6px 18px rgba(0,0,0,.35);
+}
+
+.top-item:hover{
+  transform:translateY(-5px);
+}
+
+.top-bar{
+  position:relative;
+  padding:25px 40px;
+  text-align:left;
+}
+
+/* STANDARD JCI – BACK HOME */
+.back-home{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+
+  padding:12px 34px;
+  border:2px solid var(--gold);
+  border-radius:40px;
+
+  color:var(--gold);
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+
+  background:transparent;
+  box-shadow:0 8px 22px rgba(237,190,56,.25);
+
+  transition:all .35s ease;
+  animation:backHomeIn .9s ease;
+}
+
+/* hover élégant */
+.back-home:hover{
+  background:var(--gold);
+  color:#0b1444;
+  transform:translateX(-6px);
+  box-shadow:0 14px 30px rgba(237,190,56,.45);
+}
+
+/* animation apparition */
+@keyframes backHomeIn{
+  from{
+    opacity:0;
+    transform:translateX(-25px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+/* responsive */
+@media(max-width:768px){
+  .top-bar{
+    padding:20px;
+  }
+  .back-home{
+    padding:10px 26px;
+    font-size:14px;
+  }
+}
+/* hover élégant */
+.back-home:hover{
+  background:var(--gold);
+  color:#0b1444;
+  transform:translateX(-6px);
+  box-shadow:0 14px 30px rgba(237,190,56,.45);
+}
+
+/* animation apparition */
+@keyframes backHomeIn{
+  from{
+    opacity:0;
+    transform:translateX(-25px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+/* responsive */
+@media(max-width:768px){
+  .top-bar{
+    padding:20px;
+  }
+  .back-home{
+    padding:10px 26px;
+    font-size:14px;
+  }
+}
+
+</style>
+</head>
+<!-- PALETTE -->
+
+<body>
+    <div class="animated-bg">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+
+<!-- RETOUR -->
+<div class="top-bar">
+<a href="index.html" class="back-home">⬅ Retour à l'accueil</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="i2.png" alt="JCI Logo">
+  <h1>Adhésion à la Jeune Chambre Internationale </h1>
+  <p>Rejoignez un réseau mondial de jeunes leaders</p>
+</section>
+
+<div class="container">
+
+  <!-- POURQUOI -->
+  <div class="block">
+    <h2>Pourquoi devenir membre ?</h2>
+    <p>
+      En devenant membre de la Jeune Chambre, tu auras l’occasion de faire partie
+      du plus grand réseau de jeunes de 18 à 40 ans dans le monde et de découvrir
+      un monde d’opportunités !
+    </p>
+    <p>
+      La Jeune Chambre, ce sont des rencontres, des formations, des projets,
+      des liens forts dans ta ville mais aussi avec des membres venus d’ailleurs,
+      tout en créant des projets à impact positif.
+    </p>
+    <p>
+      Nous sommes moteurs de changement et comptons sur toi pour avancer ensemble.
+    </p>
+  </div>
+
+  <!-- COMMENT -->
+  <div class="block">
+    <h2>Comment devenir membre ?</h2>
+
+    <div class="steps">
+      <div class="step">
+        <h3>1️⃣ Découverte</h3>
+        <p>
+          Assister à une réunion d’information et devenir observateur afin de
+          découvrir le mouvement et ses activités.
+        </p>
+      </div>
+
+      <div class="step">
+        <h3>2️⃣ Candidature</h3>
+        <p>
+          Participer activement aux commissions, projets et formations en tant
+          que candidat membre.
+        </p>
+      </div>
+
+      <div class="step">
+        <h3>3️⃣ Intégration</h3>
+        <p>
+          Présenter ton engagement et ta vision au conseil d’administration
+          pour devenir membre officiel.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROCEDURE -->
+  <div class="block">
+    <h2>Comment procéder ?</h2>
+    <p>
+      Choisis l’Organisation Locale des Membres (OLM) à laquelle tu souhaites
+      adhérer. Il existe plus de 100 OLMs réparties sur les 24 régions tunisiennes.
+    </p>
+    <p>
+      Ensuite, contacte l’OLM choisie via sa page Facebook afin de fixer
+      un rendez-vous et commencer ton parcours JCI.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 JCI Zawiet el Magaiez – Tous droits réservés
+</footer>
+
+</body>
+</html>

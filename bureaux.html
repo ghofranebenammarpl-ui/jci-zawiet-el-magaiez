@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Bureaux JCI | 2019 – 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#0B0F2F;
+  --blue:#1E88E5;
+  --cyan:#39C6C3;
+  --gold:#EDBE38;
+  --white:#ffffff;
+}
+/* === Responsive global pour mobile === */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* optionnel, réduire texte si nécessaire */
+  }
+
+  header, .hero-content {
+    padding: 60px 15px 50px; /* ajuster les paddings pour petits écrans */
+  }
+
+  .top-palette {
+    display: none; /* cacher la palette horizontale sur mobile */
+  }
+
+  .mobile-menu-icon {
+    display: block; /* afficher l'icône hamburger */
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    z-index: 1000;
+    cursor: pointer;
+    color: var(--white);
+  }
+
+  .mobile-menu {
+    display: none; /* caché par défaut */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: var(--jci-navy);
+    padding-top: 60px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.4);
+    z-index: 999;
+    overflow-y: auto;
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    padding: 0 20px;
+  }
+
+  .mobile-menu li {
+    margin: 20px 0;
+  }
+
+  .mobile-menu a {
+    text-decoration: none;
+    font-size: 18px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s;
+  }
+
+  .mobile-menu a:hover {
+    color: var(--jci-gold);
+  }
+
+  /* Autres sections ajustables */
+  .cards-container, .stats-container, .contact-row {
+    grid-template-columns: 1fr !important; /* empile les éléments sur mobile */
+    gap: 15px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background: linear-gradient(-45deg,#0b0f2f,#11194f,#0b0f2f);
+  background-size: 400% 400%;
+  animation: bgMove 15s ease infinite;
+  color:var(--white);
+}
+
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* LOGO */
+.logo-center{
+  display:flex;
+  justify-content:center;
+  margin:40px 0 20px;
+}
+.logo-center img{
+  width:250px;
+  height:250px;
+  object-fit:contain;
+  animation: zoomIn 1.2s ease;
+}
+
+@keyframes zoomIn{
+  from{opacity:0; transform:scale(0.7)}
+  to{opacity:1; transform:scale(1)}
+}
+
+/* TITLE */
+.page-title{
+  text-align:center;
+  font-size:48px;
+  font-weight:700;
+  margin-bottom:60px;
+  color:var(--gold);
+  animation: fadeDown 1s ease;
+}
+
+@keyframes fadeDown{
+  from{opacity:0; transform:translateY(-30px)}
+  to{opacity:1; transform:translateY(0)}
+}
+
+/* SECTIONS */
+.section{
+  max-width:1000px;
+  margin:0 auto 90px;
+  text-align:center;
+  animation: fadeUp 1.2s ease forwards;
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(40px)}
+  to{opacity:1; transform:translateY(0)}
+}
+
+.section h2{
+  font-size:32px;
+  margin-bottom:20px;
+  color:var(--cyan);
+  letter-spacing:1px;
+}
+
+.photo-box{
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.5);
+  transition:0.4s;
+}
+
+.photo-box:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 25px 60px rgba(57,198,195,0.5);
+}
+
+.photo-box img{
+  width:100%;
+  border-radius:15px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px 20px;
+  background:#070a1f;
+  font-size:14px;
+  opacity:0.8;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .page-title{font-size:34px}
+  .section h2{font-size:24px}
+  .logo-center img{width:200px;height:200px}
+}
+
+/* CONTAINER DU BOUTON */
+.back-container{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  margin:80px 0 60px;
+}
+
+/* BOUTON RETOUR – STYLE PRO */
+.btn-back-bottom{
+  padding:16px 40px;
+  border:2px solid #39C6C3;
+  border-radius:50px;
+  color:#39C6C3;
+  text-decoration:none;
+  font-size:18px;
+  font-weight:600;
+  background:transparent;
+  letter-spacing:0.5px;
+  transition:all 0.35s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+/* EFFET HOVER */
+.btn-back-bottom::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:rgba(57,198,195,0.15);
+  transition:0.35s;
+}
+
+.btn-back-bottom:hover::before{
+  left:0;
+}
+
+.btn-back-bottom:hover{
+  color:#ffffff;
+  box-shadow:0 0 25px rgba(57,198,195,0.6);
+  transform:translateY(-2px);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LOGO -->
+<div class="logo-center">
+  <img src="i2.png" alt="JCI Logo">
+</div>
+
+<h1 class="page-title">Les Bureaux Exécutifs de la JCI Zawiet El Magaiez<br>2019 – 2026</h1>
+
+<!-- BUREAU 2019–2020 -->
+<section class="section">
+  <h2>Bureau Exécutif 2026</h2>
+  <div class="photo-box">
+    <img src="photobureaux/1.jpg" alt="Bureau 2019-2020">
+  </div>
+</section>
+
+<!-- 2021 -->
+<section class="section">
+  <h2>Bureau Exécutif 2025</h2>
+  <div class="photo-box">
+    <img src="photobureaux/2.jpg" alt="Bureau 2021">
+  </div>
+</section>
+
+<!-- 2022 -->
+<section class="section">
+  <h2>Bureau Exécutif 2024</h2>
+  <div class="photo-box">
+    <img src="photobureaux/3.jpg" alt="Bureau 2022">
+  </div>
+</section>
+
+<!-- 2023 -->
+<section class="section">
+  <h2>Bureau Exécutif 2023</h2>
+  <div class="photo-box">
+    <img src="photobureaux/4.jpg" alt="Bureau 2023">
+  </div>
+</section>
+
+<!-- 2024 -->
+<section class="section">
+  <h2>Bureau Exécutif 2022</h2>
+  <div class="photo-box">
+    <img src="photobureaux/5.jpg" alt="Bureau 2024">
+  </div>
+</section>
+
+<!-- 2025–2026 -->
+<section class="section">
+  <h2>Bureau Exécutif 2021</h2>
+  <div class="photo-box">
+    <img src="photobureaux/6.jpg" alt="Bureau 2025-2026">
+  </div>
+</section>
+<section class="section">
+  <h2>Bureau Exécutif  2019-2020</h2>
+  <div class="photo-box">
+    <img src="photobureaux/7.jpg" alt="Bureau 2025-2026">
+  </div>
+</section>
+
+
+<div class="back-container">
+  <a href="index.html" class="btn-back-bottom">
+    ⬅ Retour à l’accueil
+  </a>
+</div>
+
+
+<footer>
+  © 2026 JCI Zawiet el Magaiez – Tous droits réservés
+</footer>
+
+</body>
+</html>

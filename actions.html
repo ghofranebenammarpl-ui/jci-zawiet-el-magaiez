@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>JCI Zawiet el Magaiez | Actions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --jci-navy: #0B0F2F;
+      --jci-blue: #1E88E5;
+      --jci-cyan: #39C6C3;
+      --jci-gold: #EDBE38;
+      --jci-white: #ffffff;
+    }
+/* === Responsive global pour mobile === */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* optionnel, réduire texte si nécessaire */
+  }
+
+  header, .hero-content {
+    padding: 60px 15px 50px; /* ajuster les paddings pour petits écrans */
+  }
+
+  .top-palette {
+    display: none; /* cacher la palette horizontale sur mobile */
+  }
+
+  .mobile-menu-icon {
+    display: block; /* afficher l'icône hamburger */
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    z-index: 1000;
+    cursor: pointer;
+    color: var(--white);
+  }
+
+  .mobile-menu {
+    display: none; /* caché par défaut */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: var(--jci-navy);
+    padding-top: 60px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.4);
+    z-index: 999;
+    overflow-y: auto;
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    padding: 0 20px;
+  }
+
+  .mobile-menu li {
+    margin: 20px 0;
+  }
+
+  .mobile-menu a {
+    text-decoration: none;
+    font-size: 18px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s;
+  }
+
+  .mobile-menu a:hover {
+    color: var(--jci-gold);
+  }
+
+  /* Autres sections ajustables */
+  .cards-container, .stats-container, .contact-row {
+    grid-template-columns: 1fr !important; /* empile les éléments sur mobile */
+    gap: 15px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--jci-navy);
+      color: var(--jci-white);
+      overflow-x: hidden;
+    }
+
+    /* ================= LOGO ================= */
+    .top-logo {
+      text-align: center;
+      margin-top: 15px; /* ESPACE RÉDUIT */
+    }
+
+    .top-logo img {
+      width: 160px;
+    }
+
+    /* ================= TITLE ================= */
+    .page-title {
+      text-align: center;
+      margin-top: 10px; /* ESPACE RÉDUIT */
+      margin-bottom: 40px;
+    }
+
+    .page-title h1 {
+      font-size: 46px;
+      font-weight: 700;
+      color: var(--jci-cyan);
+    }
+
+    /* ================= ACTION INTRO ================= */
+    .action-intro {
+      padding: 20px 20px 80px;
+    }
+
+    .action-intro p {
+      max-width: 950px;
+      margin: auto;
+      padding: 26px 30px;
+
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: 20px;
+
+      box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.75),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+
+      font-size: 17px;
+      line-height: 1.9;
+      text-align: center;
+
+      backdrop-filter: blur(6px);
+
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ================= ACTION CARDS ================= */
+    .action-cards {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      padding: 0 20px 80px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #0f153d, #0b0f2f);
+      padding: 35px 20px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 15px 35px rgba(57,198,195,0.4);
+    }
+
+    .card h3 {
+      color: var(--jci-gold);
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #070a1f;
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    /* =========================
+   GALERIE ACTIONS
+========================= */
+.actions-gallery {
+  padding: 80px 20px 100px;
+  background: radial-gradient(circle at top, #0f1a4a, #0b0f2f);
+}
+
+.actions-gallery h2 {
+  text-align: center;
+  font-size: 40px;
+  color: var(--jci-cyan);
+  margin-bottom: 10px;
+}
+
+.actions-gallery p {
+  text-align: center;
+  opacity: 0.85;
+  margin-bottom: 60px;
+}
+
+/* GRID */
+.actions-grid {
+  max-width: 1300px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+/* ITEM */
+.action-item {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.45);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  animation: reveal 0.8s ease forwards;
+}
+
+.action-item:nth-child(even) {
+  animation-delay: 0.1s;
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* IMAGE */
+.action-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s ease, filter 0.9s ease;
+}
+
+/* GLOW BORDER */
+.action-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(120deg, #39C6C3, #1E88E5, #EDBE38)
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* SCAN EFFECT */
+.action-item::after {
+  content: "";
+  position: absolute;
+  top: -120%;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(57,198,195,0.35),
+    transparent
+  );
+  transition: top 0.9s ease;
+}
+
+/* HOVER */
+.action-item:hover {
+  transform: translateY(-14px) rotateX(4deg) rotateY(-4deg);
+}
+
+.action-item:hover img {
+  transform: scale(1.15);
+  filter: brightness(1.15) contrast(1.1);
+}
+
+.action-item:hover::before {
+  opacity: 1;
+}
+
+.action-item:hover::after {
+  top: 120%;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .actions-gallery h2 {
+    font-size: 30px;
+  }
+}
+.back-home-pill {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px 60px;
+  background: linear-gradient(180deg, rgba(11,15,47,0.9), rgba(11,15,47,1));
+}
+
+.back-home-pill a {
+  padding: 14px 42px;
+  border-radius: 999px;
+  border: 2px solid #39C6C3;
+  color: #39C6C3;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  background: transparent;
+  box-shadow: 0 0 0 rgba(57,198,195,0);
+  transition: all 0.35s ease;
+}
+
+.back-home-pill a:hover {
+  background: rgba(57,198,195,0.12);
+  box-shadow: 0 0 25px rgba(57,198,195,0.45);
+  transform: translateY(-3px);
+  color: #ffffff;
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  <!-- LOGO -->
+  <div class="top-logo">
+    <img src="i2.png" alt="JCI Zawiet el Magaiez">
+  </div>
+
+  <!-- TITLE -->
+  <div class="page-title">
+    <h1>Les Actions/Projets de la JCI </h1>
+  </div>
+
+  <!-- PARAGRAPHE ACTION -->
+  <section class="action-intro">
+    <p>
+      L’action constitue un pilier fondamental de la Jeune Chambre Internationale, traduisant la formation et la vision en impact réel et mesurable. À travers ses initiatives, la JCI Zawiet el Magaiez agit comme un catalyseur de changement en servant simultanément l’individu, la communauté et les institutions. Les actions menées visent à renforcer les capacités des jeunes citoyens, à répondre aux besoins locaux, à soutenir la bonne gouvernance et à encourager le développement durable. En s’inscrivant dans une logique de croissance inclusive, l’action JCI transforme les idées en solutions concrètes et durables, contribuant ainsi à l’essor économique, social et civique du territoire.
+    </p>
+  </section>
+
+  <!-- ACTION AXES -->
+  <section class="action-cards">
+    <div class="card">
+      <h3>Individu</h3>
+      <p>Développement des compétences, leadership et citoyenneté active</p>
+    </div>
+
+    <div class="card">
+      <h3>Communauté</h3>
+      <p>Actions sociales, environnementales et solidaires à impact local</p>
+    </div>
+
+    <div class="card">
+      <h3>Gouvernance</h3>
+      <p>Engagement civique, plaidoyer et promotion de la bonne gouvernance</p>
+    </div>
+
+    <div class="card">
+      <h3>Développement & Croissance</h3>
+      <p>Initiatives économiques, innovation et durabilité</p>
+    </div>
+  </section>
+
+  <section class="actions-gallery">
+  <h2>Galerie des Actions</h2>
+  <p>Nos actions sur le terrain, en images</p>
+
+  <div class="actions-grid" id="actionsGrid">
+    <!-- Images injectées automatiquement -->
+  </div>
+</section>
+<div class="back-home-pill">
+<a href="index.html" class="btn-home">⬅ Retour à l'accueil</a>
+</div>
+
+
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 JCI Zawiet el Magaiez – Tous droits réservés
+  </footer>
+
+
+  <script>
+  const actionsGrid = document.getElementById("actionsGrid");
+
+  for (let i = 1; i <= 100; i++) {
+    const item = document.createElement("div");
+    item.className = "action-item";
+
+    const img = document.createElement("img");
+    img.src = `photoactions/${i}.jpg`;
+    img.alt = `Action JCI ${i}`;
+    img.loading = "lazy";
+
+    item.appendChild(img);
+    actionsGrid.appendChild(item);
+  }
+</script>
+
+
+
+</body>
+</html>
